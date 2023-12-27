@@ -1,5 +1,5 @@
 # Consumindo API em Java
-Este projeto realiza consultas à API da Tabela FIPE (https://deividfortuna.github.io/fipe/) para obter informações sobre veículos.
+Este projeto foi feito em Java com Spring Boot e realiza consultas à API da Tabela FIPE (https://deividfortuna.github.io/fipe/) para obter informações sobre veículos.
 
 ## Sobre o projeto
 Algumas das principais funcionalidades implementadas neste projeto:
