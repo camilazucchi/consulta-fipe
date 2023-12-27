@@ -13,7 +13,7 @@ public class ConsultaApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) {
 		Menu menu = new Menu();
 		menu.mostraMenu();
 	}
