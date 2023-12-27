@@ -64,6 +64,7 @@ public class Menu {
         String veiculoJson = consomeApi.pegaDados(ENDERECO + tipoVeiculo);
         List<Dados> dadosList = conversor.pegaDadosLista(veiculoJson, Dados.class);
         dadosList.sort(Comparator.comparingInt(dados -> Integer.parseInt(dados.codigo())));
+        System.out.println("-- Marcas --");
         for (Dados dados : dadosList) {
             System.out.println(dados);
         }
@@ -76,6 +77,7 @@ public class Menu {
         String endereco = ENDERECO + tipoVeiculo + "/" + codigoMarca + MODELOS;
         String veiculoJson = consomeApi.pegaDados(endereco);
         var modeloLista = conversor.pegaDados(veiculoJson, Modelos.class);
+        System.out.println("-- Veículos correspondentes com o código: " + codigoMarca + " --");
         modeloLista.modelos().stream()
                 .sorted(Comparator.comparingInt(modelo -> Integer.parseInt(modelo.codigo())))
                 .forEach(System.out::println);
@@ -91,6 +93,7 @@ public class Menu {
                 .filter(modelo -> modelo.nome().toLowerCase().contains(nomeVeiculo.toLowerCase()))
                 .sorted(Comparator.comparingInt(modelo -> Integer.parseInt(modelo.codigo())))
                 .toList();
+        System.out.println("-- Veículos filtrados pelo nome --");
         for (Dados veiculo : veiculosFiltradosPorNome) {
             System.out.println("- Código do veículo: " + veiculo.codigo() + " - Nome do veículo: " +
                     veiculo.nome().substring(0, 1).toUpperCase()
@@ -101,6 +104,10 @@ public class Menu {
     public void mostrarInformacoesVeiculos(String tipoVeiculo, String codigoMarca) {
         System.out.println("Digite o código do modelo da lista acima: ");
         String codigoVeiculo = scanner.nextLine();
+
+        if (codigoVeiculo.isEmpty()) {
+            System.out.println("É necessário informar o código do veículo para realizar a busca.");
+        }
 
         String endereco = ENDERECO + tipoVeiculo + "/" + codigoMarca + MODELOS + "/" + codigoVeiculo + ANOS;
         String veiculoJson = consomeApi.pegaDados(endereco);
