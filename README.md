@@ -15,5 +15,5 @@ Algumas das principais funcionalidades implementadas neste projeto:
 - Certifique-se de ter o Java instalado em sua máquina.
 2. **Clone o repositório**
 ```bash
-git clone https://github.com/camilazucchi/consultafipe.git
+git clone https://github.com/camilazucchi/consulta-fipe.git
 cd consultafipe
