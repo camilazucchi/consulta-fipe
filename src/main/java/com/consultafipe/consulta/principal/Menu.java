@@ -89,6 +89,7 @@ public class Menu {
         var modeloLista = conversor.pegaDados(veiculoJson, Modelos.class);
         var veiculosFiltradosPorNome = modeloLista.modelos().stream()
                 .filter(modelo -> modelo.nome().toLowerCase().contains(nomeVeiculo.toLowerCase()))
+                .sorted(Comparator.comparingInt(modelo -> Integer.parseInt(modelo.codigo())))
                 .toList();
         for (Dados veiculo : veiculosFiltradosPorNome) {
             System.out.println("- Código do veículo: " + veiculo.codigo() + " - Nome do veículo: " +
