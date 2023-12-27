@@ -1,4 +1,4 @@
-package service;
+package com.consultafipe.consulta.service;
 
 
 import java.io.IOException;
